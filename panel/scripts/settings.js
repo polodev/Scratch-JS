@@ -10,7 +10,7 @@ function Settings(repl) {
     indentUnit: 2,
     indentWithTabs: false,
     theme: 'default',
-    vimMode: false
+    vimMode: true
   }
 
   document.addEventListener('DOMContentLoaded', this.onDomReady.bind(this));
