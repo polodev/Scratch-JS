@@ -36,7 +36,9 @@ Repl.prototype.onDomReady = function() {
   this.addEventListeners(this);
 
   this.widgets = [];
-
+  CodeMirror.commands.autocomplete = function(cm) {
+        cm.showHint({hint: CodeMirror.hint.anyword});
+  }
   this.editor = CodeMirror.fromTextArea(this.DOM.inputTextArea, {
     lineNumbers: true,
     matchBrackets: true,
