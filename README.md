@@ -1,3 +1,10 @@
+## Scratch JS forked by polo dev
+I have added vim keybindings and auto completion in this repo.
+in order to work manually you should do following 
+* first clone this repo
+* `cd` into repo and do `npm i`
+* once `npm i` done do `npm start`
+* now go to chrome extension page and select load unpack extension and select this repo
 ## Scratch JS
 
 ### What is it?
