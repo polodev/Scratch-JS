@@ -4,7 +4,8 @@ in order to work manually you should do following
 * first clone this repo
 * `cd` into repo and do `npm i`
 * once `npm i` done do `npm start`
-* now go to chrome extension page and select load unpack extension and select this repo
+* now go to chrome extension page and select load unpack extension and select this repo   
+Enjoy vim key binding and autocompletion. to change key map you can use `:` and `imap jj <Esc>`
 ## Scratch JS
 
 ### What is it?
