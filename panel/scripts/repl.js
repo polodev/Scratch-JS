@@ -57,7 +57,13 @@ Repl.prototype.onDomReady = function() {
     theme: this.settings.data.theme,
     mode: this.settings.data.mode || 'markdown',
     keyMap: this.settings.data.vimMode ? 'vim' : 'default',
+    profile: 'xhtml',
   });
+
+  emmetCodeMirror(this.editor, {
+    'Tab': 'emmet.expand_abbreviation_with_tab',
+    'Cmd-Alt-B': 'emmet.balance_outward'
+});
 
   // Need to dig in to grab Vim
   this.Vim = document.querySelector('.CodeMirror').CodeMirror.constructor.Vim
