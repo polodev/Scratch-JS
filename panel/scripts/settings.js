@@ -10,7 +10,8 @@ function Settings(repl) {
     indentUnit: 2,
     indentWithTabs: false,
     theme: 'default',
-    vimMode: true
+    vimMode: true,
+    mode: 'yaml',
   }
 
   document.addEventListener('DOMContentLoaded', this.onDomReady.bind(this));
@@ -61,6 +62,12 @@ Settings.prototype.onDomReady = function() {
   [].forEach.call(document.querySelectorAll('input[name="theme"]'), function (el) {
     el.addEventListener('click', function(e) {
       this.set({ theme: e.target.value });
+    }.bind(this));
+  }.bind(this));
+
+  [].forEach.call(document.querySelectorAll('input[name="mode"]'), function (el) {
+    el.addEventListener('click', function(e) {
+      this.set({ mode: e.target.value });
     }.bind(this));
   }.bind(this));
 
@@ -146,6 +153,7 @@ Settings.prototype.transformerOptionTemplate = function(transformers) {
 
 Settings.prototype.setFormDefaults = function() {
   document.querySelector('[name="theme"][value="' + this.data.theme + '"]').checked = true;
+  document.querySelector(`[name="mode"][value="${this.data.mode}"]`).checked = true;
   document.querySelector('[name="tabSize"]').value = this.data.tabSize;
   document.querySelector('[name="indentWithTabs"]').checked = this.data.indentWithTabs;
   document.querySelector('[name="vimMode"]').checked = this.data.vimMode;

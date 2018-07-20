@@ -55,8 +55,8 @@ Repl.prototype.onDomReady = function() {
     indentWithTabs: this.settings.data.indentWithTabs || false,
     autoCloseBrackets: true,
     theme: this.settings.data.theme,
+    mode: this.settings.data.mode || 'markdown',
     keyMap: this.settings.data.vimMode ? 'vim' : 'default',
-    mode: this.settings.data.mode || 'markdown'
   });
 
   // Need to dig in to grab Vim
@@ -133,7 +133,8 @@ Repl.prototype.toggleOutput = function(e, state) {
     lineNumbers: true,
     tabSize: 2,
     readOnly: true,
-    theme: this.settings.data.theme
+    theme: this.settings.data.theme,
+    mode: this.settings.data.mode,
   });
 
   switch (state) {
@@ -241,6 +242,9 @@ Repl.prototype.addEventListeners = function() {
   bus.on('settings:changed:tabSize', (tabSize) => {
     this.editor.setOption('tabSize', tabSize);
     this.editor.setOption('indentUnit', tabSize);
+  });
+  bus.on('settings:changed:mode', (mode) => {
+    this.editor.setOption('mode', mode);
   });
   bus.on('settings:changed:indentWithTabs', (useTabs) => this.editor.setOption('indentWithTabs', useTabs));
   bus.on('settings:changed:vimMode', (vimMode) => this.editor.setOption('vimMode', vimMode));
