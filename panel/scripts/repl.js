@@ -55,7 +55,8 @@ Repl.prototype.onDomReady = function() {
     indentWithTabs: this.settings.data.indentWithTabs || false,
     autoCloseBrackets: true,
     theme: this.settings.data.theme,
-    keyMap: this.settings.data.vimMode ? 'vim' : 'default'
+    keyMap: this.settings.data.vimMode ? 'vim' : 'default',
+    mode: this.settings.data.mode || 'markdown'
   });
 
   // Need to dig in to grab Vim
