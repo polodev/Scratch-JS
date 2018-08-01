@@ -39,6 +39,8 @@ Repl.prototype.onDomReady = function() {
   CodeMirror.commands.autocomplete = function(cm) {
         cm.showHint({hint: CodeMirror.hint.anyword});
   }
+
+  CodeMirror.Vim.map('jj', '<Esc>', 'insert');
   this.editor = CodeMirror.fromTextArea(this.DOM.inputTextArea, {
     lineNumbers: true,
     matchBrackets: true,
@@ -60,10 +62,8 @@ Repl.prototype.onDomReady = function() {
     profile: 'xhtml',
   });
 
-  emmetCodeMirror(this.editor, {
-    'Tab': 'emmet.expand_abbreviation_with_tab',
-    'Cmd-Alt-B': 'emmet.balance_outward'
-});
+  emmetCodeMirror(this.editor);
+  this.editor.focus();
 
   // Need to dig in to grab Vim
   this.Vim = document.querySelector('.CodeMirror').CodeMirror.constructor.Vim
